@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //// IMPORT SUBSYSTEMS ///////////////////////
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Shooter;
 
 //// IMPORT COMMANDS //////////////////////////
 
@@ -30,6 +31,7 @@ import frc.robot.commands.*;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Intake m_intake = new Intake();
+  private final Shooter m_shoot = new Shooter();
   private final DriveTrain m_drivetrain = new DriveTrain();
   private final Joystick m_joystick = new Joystick(Constants.GAME_PAD);
 
@@ -81,8 +83,20 @@ public class RobotContainer {
     buttonSquare.whileHeld(new collectBall(m_intake));
     
     final JoystickButton buttonCircle = new JoystickButton(m_joystick, Constants.ButtonCircle);
-    buttonCircle.whileHeld(new collectBall(m_intake));
-  }
+    buttonCircle.whileHeld(new ejectBall(m_intake));
+
+    final JoystickButton buttonTriangle = new JoystickButton(m_joystick, Constants.ButtonTriangle);
+    buttonTriangle.whileHeld(new IndexBall(m_shoot));
+
+    final JoystickButton buttonX = new JoystickButton(m_joystick, Constants.ButtonX);
+    buttonX.whileHeld(new indexBallOut(m_shoot));
+    
+    final JoystickButton buttonR1 = new JoystickButton(m_joystick, Constants.ButtonR1);
+    buttonR1.whileHeld ( new shoot(m_shoot));
+
+  
+  
+  } 
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.

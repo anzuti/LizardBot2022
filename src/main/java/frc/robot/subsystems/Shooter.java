@@ -38,60 +38,70 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import frc.robot.Constants;
 
-public class Intake extends SubsystemBase {
+public class Shooter extends SubsystemBase {
 
 
 //VARIABLE PARA AJUSTAR LA VELOCIAD MÁXIMA DE LOS MOTORES.
-private double dampenSpeedIntake = Constants.dampenSpeedIntake;
+private double dampenSpeedShooter = Constants.dampenSpeedShooter;
+private double dampenSpeedIndexer = Constants.dampenSpeedindexer;
 
+//MOTORs
 
-//MOTOR GROUPS
+private CANSparkMax shooter ;
+private CANSparkMax indexer ;
 
-private CANSparkMax intake ;
-private CANSparkMax trigger ;
 
 
 
 
   /** Creates a new DriveTrain. *////////////////////////////////////////////////////////////////////
-  public Intake()
+  public Shooter()
   {
     super(); //CONSTRUYE EL OBJETO DEL PADRE.
     
     //Set motors
-   // trigger = new CANSparkMax(Constants.triggerID, MotorType.kBrushed);
-    intake = new CANSparkMax(Constants.intakeID, MotorType.kBrushed);
+    shooter = new CANSparkMax(Constants.shooterID, MotorType.kBrushed);
+    indexer = new CANSparkMax(Constants.indexID, MotorType.kBrushed);
 
     
   }
 
-  public void releaseIntake()
+  public void shootHigh()
   {
     
-
-    //trigger.set(1);
-   
-
+    shooter.set(dampenSpeedShooter);
+  
 
   }
 
-  //HELPER METHODS FOR THE DRIVETRAIN
-  public void collect() //metodo para el manejo con control libre.
+
+  public void shootLow() 
   {
-    intake.set(1);
+    shooter.set(dampenSpeedShooter*0.5);
   }
 
-  public void eject ()
+  public void ballIn ()
   {
-    intake.set(-1);
+    indexer.set(dampenSpeedIndexer);
   }
 
-  public void stopIntake(){
+  public void ballOut(){
 
-    intake.set(0);
- 
+    indexer.set(-dampenSpeedIndexer);
   }
 
+  public void stopShooter(){
+
+shooter.stopMotor();
+
+  }
+
+  public void stopIndexer(){
+
+
+indexer.stopMotor();
+
+  }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
   @Override
   public void periodic() {

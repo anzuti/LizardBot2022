@@ -62,8 +62,25 @@ public static double dampenSpeedIntake = 1;
 
 // CONSTANTES PARA MOTORES DEL INTAKE
 
-public static int triggerID = 5;
-public static int intakeID = 4;
+//public static int triggerID = 10;
+public static int intakeID = 6;
+
+// CONSTANTES PARA MOTOR DEL SHOOTER
+public static int shooterID = 4;
+public static double dampenSpeedShooter=1;
+
+
+// CONSTANTE PARA MOTOR INDEXER
+public static int indexID = 7;
+public static double dampenSpeedindexer=0.4;
+
+
+//CONSTANTE PARA MOTOR ELEVADOR LIFT
+public static int liftID= 5;
+
+
+
+
 
 
 
