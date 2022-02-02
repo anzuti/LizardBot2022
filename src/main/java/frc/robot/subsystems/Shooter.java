@@ -4,14 +4,16 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 
 //import libraries
 
 
 import com.revrobotics.CANSparkMax;
-
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 
 //UNUSED LIBRARIES 
 
@@ -40,6 +42,9 @@ import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
 
+//DIGITAL INPUTS FROM THE IR SENSORS
+DigitalInput irSensorFront = new DigitalInput(4);
+DigitalInput irSensorBack = new DigitalInput(5);
 
 //VARIABLE PARA AJUSTAR LA VELOCIAD MÁXIMA DE LOS MOTORES.
 private double dampenSpeedShooter = Constants.dampenSpeedShooter;
@@ -102,6 +107,23 @@ shooter.stopMotor();
 indexer.stopMotor();
 
   }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+  // SENSOR GETTER METHODS
+
+  public boolean getSensorFrontState(){
+
+    return irSensorFront.get();
+
+  }
+
+  public boolean getSensorBackState(){
+
+    return irSensorBack.get();
+
+  }
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
   @Override
   public void periodic() {

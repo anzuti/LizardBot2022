@@ -11,6 +11,9 @@ import frc.robot.subsystems.Shooter;
 
 public class IndexBall extends CommandBase {
   private Shooter Shoot;
+  private boolean irSensorFront;
+  private boolean irSensorBack;
+
   /** Creates a new shoot. */
 
   public IndexBall(Shooter m_Shoot) {
@@ -23,6 +26,8 @@ public class IndexBall extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+
+    
 
     //Shoot.ballOut();
     //Timer.delay(0.3);
