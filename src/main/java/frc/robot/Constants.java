@@ -14,7 +14,7 @@ package frc.robot;
  */
 public final class Constants {
 
-// IDENTIFICACIÓN PARA LOS CONTROLADORES DE MOTOR EN EL DRIVERTRAIN
+// IDENTIFICACIÓN PARA LOS CONTROLADORES DE MOTOR EN EL DRIVERTRAIN VICTOR CONTROLLERS
 
 public static final int MOTOR_RIGHT_0_ID = 2;
 public static final int MOTOR_RIGHT_1_ID = 3;
@@ -60,7 +60,7 @@ public static final double kMaxSpeedMetersPerSecond= 1.5;
 public static final double kMaxAccelerationMetersPerSecondSquared = 0.75;
 public static double dampenSpeedIntake = 1;
 
-// CONSTANTES PARA MOTORES DEL INTAKE
+// CONSTANTES PARA MOTORES DEL INTAKE SPARK
 
 //public static int triggerID = 10;
 public static int intakeID = 6;
@@ -70,13 +70,20 @@ public static int shooterID = 4;
 public static double dampenSpeedShooter=1;
 
 
-// CONSTANTE PARA MOTOR INDEXER
+// CONSTANTE PARA MOTOR INDEXER  SPARK
 public static int indexID = 7;
 public static double dampenSpeedindexer=0.4;
 
 
 //CONSTANTE PARA MOTOR ELEVADOR LIFT
-public static int liftID= 5;
+public static int liftID= 5;  // SPARK
+public static int liftWinch = 8;  //TALON
+public static int liftLimitSwitch = 6;  //DIGITAL INPUT FOR A LIMITSWITCH ON THE LIFT
+public static double dampenSpeedLift = 0.5;
+public static double dampenSpeedWinch = 0.5;
+
+
+
 
 
 
