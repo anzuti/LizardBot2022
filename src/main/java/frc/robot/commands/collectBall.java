@@ -5,25 +5,33 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.*;
+
 
 public class collectBall extends CommandBase {
   private Intake collect;
+  private Shooter shoot;
+  private boolean frontSensorState;
+  private boolean backSensorState;
   
   /** Creates a new collectBall. */
 
   public collectBall(Intake m_collect) {
 
     collect = m_collect;
+    frontSensorState = false;
+    backSensorState = false;
+
+    
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(collect);
+    //ddRequirements(collect);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
 
-    //collect.stopIntake();
+    
 
   }
 
@@ -32,6 +40,23 @@ public class collectBall extends CommandBase {
   public void execute() {
 
     collect.collect();
+    
+    /* frontSensorState = shoot.getSensorFrontState();
+    / backSensorState = shoot.getSensorBackState();
+
+    if(frontSensorState){
+      
+      shoot.ballIn();
+
+      if(backSensorState){
+
+        
+
+      }
+      
+
+
+    }*/
 
   }
 

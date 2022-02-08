@@ -81,6 +81,8 @@ public class RobotContainer {
 
     final JoystickButton buttonSquare = new JoystickButton(m_joystick, Constants.ButtonSquare);
     buttonSquare.whileHeld(new collectBall(m_intake));
+
+    //buttonSquare.whileHeld(new IndexBall(m_shoot));
     
     final JoystickButton buttonCircle = new JoystickButton(m_joystick, Constants.ButtonCircle);
     buttonCircle.whileHeld(new ejectBall(m_intake));

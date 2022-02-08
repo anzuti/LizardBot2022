@@ -103,7 +103,7 @@ double rotspeed = Constants.DT_ROTATION_SPEED;
 
 private Encoder rightEncoder = new Encoder(0,1);
 private Encoder leftEncoder = new Encoder(2,3);
-private Encoder extraEncoder = new Encoder(4,5);
+
 
 
 
@@ -128,7 +128,7 @@ private Encoder extraEncoder = new Encoder(4,5);
     rightEncoder.setDistancePerPulse(1./2048);
     leftEncoder.setDistancePerPulse(1./2048);
     leftEncoder.setReverseDirection(true); //cambiar signo para que ambos tengan el mismo sentido
-    extraEncoder.setDistancePerPulse(1./1000);
+
     
   }
 
@@ -285,7 +285,6 @@ gyro_controller.reset(0.0);
     SmartDashboard.putNumber("GyroInstantZ", imu.getGyroInstantZ());
 */
 
-    SmartDashboard.putNumber("ExtraEncoder", extraEncoder.getDistance());
 
 
 

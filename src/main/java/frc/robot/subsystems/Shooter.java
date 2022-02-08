@@ -43,8 +43,8 @@ import frc.robot.Constants;
 public class Shooter extends SubsystemBase {
 
 //DIGITAL INPUTS FROM THE IR SENSORS
-DigitalInput irSensorFront = new DigitalInput(4);
-DigitalInput irSensorBack = new DigitalInput(5);
+DigitalInput irSensorFront = new DigitalInput(Constants.IRSensorFront);
+DigitalInput irSensorBack = new DigitalInput(Constants.IRSensorBack);
 
 //VARIABLE PARA AJUSTAR LA VELOCIAD MÁXIMA DE LOS MOTORES.
 private double dampenSpeedShooter = Constants.dampenSpeedShooter;
@@ -59,7 +59,7 @@ private CANSparkMax indexer ;
 
 
 
-  /** Creates a new DriveTrain. *////////////////////////////////////////////////////////////////////
+  // Create a new Shooter object
   public Shooter()
   {
     super(); //CONSTRUYE EL OBJETO DEL PADRE.
@@ -107,6 +107,7 @@ shooter.stopMotor();
 indexer.stopMotor();
 
   }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
   // SENSOR GETTER METHODS
 

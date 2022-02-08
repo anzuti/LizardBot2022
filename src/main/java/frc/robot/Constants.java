@@ -68,11 +68,13 @@ public static int intakeID = 6;
 // CONSTANTES PARA MOTOR DEL SHOOTER
 public static int shooterID = 4;
 public static double dampenSpeedShooter=1;
+public static final int IRSensorFront = 4;
+public static final int IRSensorBack = 5;
 
 
 // CONSTANTE PARA MOTOR INDEXER  SPARK
 public static int indexID = 7;
-public static double dampenSpeedindexer=0.4;
+public static double dampenSpeedindexer=0.2;
 
 
 //CONSTANTE PARA MOTOR ELEVADOR LIFT

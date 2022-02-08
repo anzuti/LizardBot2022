@@ -11,8 +11,7 @@ import frc.robot.subsystems.Shooter;
 
 public class IndexBall extends CommandBase {
   private Shooter Shoot;
-  private boolean irSensorFront;
-  private boolean irSensorBack;
+
 
   /** Creates a new shoot. */
 
