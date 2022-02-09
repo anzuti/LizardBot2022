@@ -82,7 +82,7 @@ public class RobotContainer {
     final JoystickButton buttonSquare = new JoystickButton(m_joystick, Constants.ButtonSquare);
     buttonSquare.whileHeld(new collectBall(m_intake));
 
-    //buttonSquare.whileHeld(new IndexBall(m_shoot));
+    
     
     final JoystickButton buttonCircle = new JoystickButton(m_joystick, Constants.ButtonCircle);
     buttonCircle.whileHeld(new ejectBall(m_intake));
@@ -94,8 +94,10 @@ public class RobotContainer {
     buttonX.whileHeld(new indexBallOut(m_shoot));
     
     final JoystickButton buttonR1 = new JoystickButton(m_joystick, Constants.ButtonR1);
-    buttonR1.whileHeld ( new shoot(m_shoot));
+    buttonR1.whileHeld ( new shoot(m_shoot,Constants.dampenSpeedShooter));
 
+    final JoystickButton buttonL1 = new JoystickButton(m_joystick, Constants.ButtonL1);
+    buttonL1.whileHeld ( new shoot(m_shoot,Constants.dampenSpeedShooter*0.5));
   
   
   } 

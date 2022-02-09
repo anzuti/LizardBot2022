@@ -74,7 +74,7 @@ public static final int IRSensorBack = 5;
 
 // CONSTANTE PARA MOTOR INDEXER  SPARK
 public static int indexID = 7;
-public static double dampenSpeedindexer=0.2;
+public static double dampenSpeedindexer=1;
 
 
 //CONSTANTE PARA MOTOR ELEVADOR LIFT

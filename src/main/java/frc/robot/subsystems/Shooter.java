@@ -71,19 +71,14 @@ private CANSparkMax indexer ;
     
   }
 
-  public void shootHigh()
+  public void shoot(double speed)
   {
     
-    shooter.set(dampenSpeedShooter);
+    shooter.set(speed);
   
 
   }
 
-
-  public void shootLow() 
-  {
-    shooter.set(dampenSpeedShooter*0.5);
-  }
 
   public void ballIn ()
   {

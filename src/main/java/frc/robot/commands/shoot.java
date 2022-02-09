@@ -11,11 +11,13 @@ import frc.robot.subsystems.Shooter;
 
 public class shoot extends CommandBase {
   private Shooter Shoot;
+  private double power;
   /** Creates a new shoot. */
 
-  public shoot(Shooter m_Shoot) {
+  public shoot(Shooter m_Shoot,double m_power) {
 
     Shoot = m_Shoot;
+    power = m_power;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Shoot);
   }
@@ -24,9 +26,6 @@ public class shoot extends CommandBase {
   @Override
   public void initialize() {
 
-    //Shoot.ballOut();
-    //Timer.delay(0.3);
-    //Shoot.stopIndexer();
 
   }
 
@@ -34,7 +33,7 @@ public class shoot extends CommandBase {
   @Override
   public void execute() {
 
-    Shoot.shootHigh();
+    Shoot.shoot(power);
     
 
   }
