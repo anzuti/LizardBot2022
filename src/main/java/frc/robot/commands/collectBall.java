@@ -24,14 +24,14 @@ public class collectBall extends CommandBase {
 
     
     // Use addRequirements() here to declare subsystem dependencies.
-    //ddRequirements(collect);
+    addRequirements(collect);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
 
-    
+  
 
   }
 
@@ -39,32 +39,20 @@ public class collectBall extends CommandBase {
   @Override
   public void execute() {
 
+
     collect.collect();
     
-    /* frontSensorState = shoot.getSensorFrontState();
-    / backSensorState = shoot.getSensorBackState();
-
-    if(frontSensorState){
-      
-      shoot.ballIn();
-
-      if(backSensorState){
-
-        
-
-      }
-      
 
 
-    }*/
+    }
 
-  }
+  
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
 
-    collect.stopIntake();
+   collect.stopIntake();
 
   }
 

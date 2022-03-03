@@ -58,7 +58,7 @@ public static final double DT_ROTATION_SPEED = 0.35;
 // CONSTANTES PARA MOTION PROFILING DEL DRIVETRAIN
 public static final double kMaxSpeedMetersPerSecond= 1.5;
 public static final double kMaxAccelerationMetersPerSecondSquared = 0.75;
-public static double dampenSpeedIntake = 1;
+public static double dampenSpeedIntake = 0.8;
 
 // CONSTANTES PARA MOTORES DEL INTAKE SPARK
 
@@ -74,15 +74,15 @@ public static final int IRSensorBack = 5;
 
 // CONSTANTE PARA MOTOR INDEXER  SPARK
 public static int indexID = 7;
-public static double dampenSpeedindexer=1;
+public static double dampenSpeedindexer=0.6;
 
 
 //CONSTANTE PARA MOTOR ELEVADOR LIFT
 public static int liftID= 5;  // SPARK
 public static int liftWinch = 8;  //TALON
 public static int liftLimitSwitch = 6;  //DIGITAL INPUT FOR A LIMITSWITCH ON THE LIFT
-public static double dampenSpeedLift = 0.5;
-public static double dampenSpeedWinch = 0.5;
+public static double dampenSpeedLift = 1;
+public static double dampenSpeedWinch = 1;
 
 
 

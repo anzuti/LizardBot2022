@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SPI;
 
-//import com.analog.adis16470.frc.ADIS16470_IMU;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -21,7 +21,7 @@ import edu.wpi.first.math.trajectory.TrapezoidProfile;
 //UNUSED LIBRARIES 
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-//import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SPI;
 //import edu.wpi.first.math.controller.PIDController;
 //import java.util.ResourceBundle.Control;
 //import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -52,7 +52,8 @@ private static final double kPTurning = 0.1; // propotional turning constant// C
 //private static final double kdTurning = 0.0;
 
 // UNCOMMENT IF USING THE ADXR450
-private static final SPI.Port kGyroPort = SPI.Port.kOnboardCS0;
+
+private static final SPI.Port kGyroPort = SPI.Port.kOnboardCS1;
 public ADXRS450_Gyro imu = new ADXRS450_Gyro(kGyroPort);
 
 //UNCOMMENT IF USING THE ADIS16470
@@ -145,7 +146,7 @@ private Encoder leftEncoder = new Encoder(2,3);
     double turningValue = (kAngleSetpoint  -  getAngle() ) * kPTurning;
     // Invert the direction of the turn if we are going backwards
 		//turningValue = Math.copySign(turningValue, joy.getY());
-    differentialDrive.arcadeDrive(joy.getY()*dampenSpeed, turningValue);
+    differentialDrive.arcadeDrive(joy.getY()*dampenSpeed, -turningValue);
     differentialDrive.setDeadband(0.05);
   
     
@@ -156,7 +157,7 @@ private Encoder leftEncoder = new Encoder(2,3);
 
     
   double turningValue = (kAngleSetpoint  -  getAngle() ) * kPTurning;
-  differentialDrive.arcadeDrive(-speed, turningValue);
+  differentialDrive.arcadeDrive(-speed, -turningValue);
 
   }
 
@@ -275,10 +276,10 @@ gyro_controller.reset(0.0);
 
     SmartDashboard.putNumber("rightEncoder", rightEncoder.getDistance());
     SmartDashboard.putNumber("leftEncoder", leftEncoder.getDistance());
-    SmartDashboard.putNumber("rawEncoderRight", rightEncoder.getRaw());
-    SmartDashboard.putNumber("Gyro 16470: ", ( getAngle() ));
+   // SmartDashboard.putNumber("rawEncoderRight", rightEncoder.getRaw());
+    SmartDashboard.putNumber("Gyro  ADX450: ", ( imu.getAngle() ));
     
-    SmartDashboard.putNumber("Gyro Controller", gyro_controller.calculate(getAngle()));
+   // SmartDashboard.putNumber("Gyro Controller", gyro_controller.calculate(getAngle()));
 
    /* SmartDashboard.putNumber("GyroInstantX", imu.getGyroInstantX());
     SmartDashboard.putNumber("GyroInstantY", imu.getGyroInstantY());

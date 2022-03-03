@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -13,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Lift;
 
 //// IMPORT COMMANDS //////////////////////////
 
@@ -30,13 +33,14 @@ import frc.robot.commands.*;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final Lift m_lift = new Lift();
   private final Intake m_intake = new Intake();
   private final Shooter m_shoot = new Shooter();
   private final DriveTrain m_drivetrain = new DriveTrain();
   private final Joystick m_joystick = new Joystick(Constants.GAME_PAD);
 
-  private final Command m_autoCommand = new autoRoutine(m_drivetrain);
- 
+  private final Command m_autoCommand = new autoRoutine(m_drivetrain,m_shoot);
+  // private final Command m_autoCommand = new autoShoot();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   
@@ -82,8 +86,6 @@ public class RobotContainer {
     final JoystickButton buttonSquare = new JoystickButton(m_joystick, Constants.ButtonSquare);
     buttonSquare.whileHeld(new collectBall(m_intake));
 
-    
-    
     final JoystickButton buttonCircle = new JoystickButton(m_joystick, Constants.ButtonCircle);
     buttonCircle.whileHeld(new ejectBall(m_intake));
 
@@ -97,9 +99,21 @@ public class RobotContainer {
     buttonR1.whileHeld ( new shoot(m_shoot,Constants.dampenSpeedShooter));
 
     final JoystickButton buttonL1 = new JoystickButton(m_joystick, Constants.ButtonL1);
-    buttonL1.whileHeld ( new shoot(m_shoot,Constants.dampenSpeedShooter*0.5));
+    buttonL1.whileHeld ( new shoot(m_shoot,Constants.dampenSpeedShooter*0.4));
+
+    final JoystickButton buttonL2Button = new JoystickButton(m_joystick, Constants.ButtonL2);
+    buttonL2Button.whileHeld ( new extendArm(m_lift, Constants.dampenSpeedLift) );
+
+    final JoystickButton buttonL3Button = new JoystickButton(m_joystick, Constants.ButtonL3);
+    buttonL3Button.whileHeld ( new extendArm(m_lift, -Constants.dampenSpeedLift) );
+
+
   
-  
+    final JoystickButton buttonR2Button = new JoystickButton(m_joystick, Constants.ButtonR2);
+    buttonR2Button.whileHeld ( new climb(m_lift) );
+    
+    final JoystickButton buttonTouchPad = new JoystickButton(m_joystick, Constants.ButtonTouchPad);
+    buttonTouchPad.whileHeld ( new release(m_lift) );
   } 
 
   /**

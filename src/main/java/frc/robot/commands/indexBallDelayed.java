@@ -7,29 +7,28 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
-import frc.robot.subsystems.*;
+import frc.robot.subsystems.Shooter;
 
-public class extendArm extends CommandBase {
-  private Lift myLift;
-  private double speed;
-  
+public class indexBallDelayed extends CommandBase {
+  private Shooter Shoot;
+  private Timer time;
 
-  /** Creates a new extendArm */
 
-  public extendArm(Lift m_lift, double m_speed) {
+  /** Creates a new shoot. */
 
-    myLift = m_lift;
-    speed = m_speed;
+  public indexBallDelayed(Shooter m_Shoot) {
+
+    Shoot = m_Shoot;
     // Use addRequirements() here to declare subsystem dependencies.
-   // addRequirements(Lift);
+    
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
 
-   myLift.extendArm(0);
+   //System.out.println(time.get());
+
 
   }
 
@@ -37,7 +36,8 @@ public class extendArm extends CommandBase {
   @Override
   public void execute() {
 
-    myLift.extendArm(speed);
+   
+  
     
 
   }
@@ -46,21 +46,17 @@ public class extendArm extends CommandBase {
   @Override
   public void end(boolean interrupted) {
 
-   myLift.extendArm(0);
+    Shoot.stopIndexer();
 
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-   /* if(myLift.getLimitSwitch()){
 
-      return true;
-    }
-    else
+   
+    return false;
+    
   
-  }*/
-  return false;
 }
-
 }

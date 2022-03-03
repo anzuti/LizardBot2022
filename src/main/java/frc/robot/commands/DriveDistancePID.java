@@ -48,11 +48,11 @@ public class DriveDistancePID extends CommandBase {
   currentDistanceRightEncoder = m_tren.getRightEncoder();  
   averageEncoders = (currentDistanceLeftEncoder + currentDistanceRightEncoder) / 2;  
     
-  if(System.currentTimeMillis()-startTime>10){
+
     
     m_tren.driveToDistance(distance);
 
-  }
+
 
   
 

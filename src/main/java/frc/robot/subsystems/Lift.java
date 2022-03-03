@@ -70,6 +70,22 @@ private WPI_TalonSRX winchMotor ;
 
   }
 
+  public void stopLift(){
+
+    liftMotor.set(0);
+  }
+
+  public void stopWinch(){
+
+    winchMotor.set(0);
+  }
+
+
+  public void releaseWinch(){
+
+    winchMotor.set(-dampenSpeedWinch);
+  }
+
   public boolean getLimitSwitch(){
 
     return limitState;

@@ -78,12 +78,12 @@ private CANSparkMax trigger ;
   //HELPER METHODS FOR THE DRIVETRAIN
   public void collect() //metodo para el manejo con control libre.
   {
-    intake.set(1);
+    intake.set(Constants.dampenSpeedIntake);
   }
 
   public void eject ()
   {
-    intake.set(-1);
+    intake.set(-Constants.dampenSpeedIntake);
   }
 
   public void stopIntake(){
